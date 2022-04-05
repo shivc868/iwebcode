@@ -1,25 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import { TimeFrameData } from "./Helper";
 
 const TimeFrame = () => {
+  const [activeTimeFrame, setActiveTimeFrame] = useState("1");
   return (
-    <div className="timeframe mt-3">
+    <div className="timeframe mt-4">
       <h4>Timeframe</h4>
-      <div className="mt-3">
-        <button className="timeframe-btn active border-0 px-3 py-2 ">
-          1 Day
-        </button>
-        <button className="timeframe-btn  border-0 px-3 py-2 ms-1">
-          7 Days
-        </button>
-        <button className="timeframe-btn  border-0 px-3 py-2 ms-1">
-          30 Days
-        </button>
-        <button className="timeframe-btn  border-0 px-3 py-2 ms-1">
-          1 Year
-        </button>
-        <button className="timeframe-btn  border-0 px-3 py-2 ms-1">
-          5 Years
-        </button>
+      <div className="mt-2">
+        {TimeFrameData.map((item) => {
+          return (
+            <button
+              onClick={() => setActiveTimeFrame(item.days)}
+              className={`timeframe-btn border-0 px-3 py-2 ${
+                activeTimeFrame == item.days ? "active" : ""
+              }`}
+              key={item.id}
+            >
+              {item.title}
+            </button>
+          );
+        })}
       </div>
     </div>
   );
