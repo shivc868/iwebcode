@@ -242,3 +242,10 @@ input:checked + .switch:active::before {
     max-width: 536px !important;
   }
 }
+
+.close-modal {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  cursor: pointer;
+}

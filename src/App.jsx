@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import "./App.css";
 import Cake from "./assets/img/cake.png";
-import { EditIcon } from "./components/Icons";
+import { CloseIcon, EditIcon } from "./components/Icons";
 import Tier from "./components/Tier";
 import TimeFrame from "./components/TimeFrame";
 import UseBalance from "./components/UseBalance";
@@ -27,9 +27,12 @@ function App() {
             show={show}
             onHide={handleClose}
           >
-            <div className="modal-wrapper">
+            <div className="modal-wrapper position-relative">
+              <div onClick={handleClose} className="close-modal">
+                <CloseIcon />
+              </div>
               <h4>ROI Calculator</h4>
-              <div className="d-flex cake-usd-text  justify-content-end">
+              <div className="d-flex mt-3 cake-usd-text  justify-content-end">
                 <div className="d-flex align-items-center">
                   <img src={Cake} alt="" />
                   <span className="d-inline-block ms-2"> Cake </span>
